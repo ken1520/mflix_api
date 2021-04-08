@@ -1,7 +1,10 @@
 const dotenv = require('dotenv');
 const express = require('express');
+const mongodb = require('./utils/mongodb');
 
 dotenv.config();
+
+mongodb.connect;
 
 const app = express();
 
