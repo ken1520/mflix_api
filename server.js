@@ -11,11 +11,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
 mongodb.connect;
 
 baseController(app);
-
 
 
 app.listen(process.env.SERVER_PORT, () => {

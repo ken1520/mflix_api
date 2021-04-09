@@ -8,7 +8,6 @@ module.exports = (req, res, validate, process) => {
             return process(req, res);
         })
         .then(() => {
-            res.send('ressss');
             let endTime = Date.now('micro');
             console.log('[API] [Processor Start] ---------------- End ' + (endTime - startTime) + ' ms ---------------- ');
         })

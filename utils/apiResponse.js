@@ -1,8 +1,14 @@
 const dotenv = require('dotenv');
-const express = require('express');
-
 dotenv.config();
 
-const app = express();
+const response = require('../config/response');
 
-module.exports = app;
+module.exports = (req, res, resCode, resData) => {
+    res.send({
+        success: resCode === 1001 ? true : false,
+        returnCode: resCode,
+        systemMessage: response[resCode].systemMessage,
+        displayMessage: response[resCode].displayMessage,
+        result: resData
+    })
+};
