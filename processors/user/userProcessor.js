@@ -19,13 +19,16 @@ let getMovieById = async (req, res) => {
     }
 };
 
-let updatePW = async (req, res) => {
-    let commonPW = await bcrypt.hash('123456', bcrypt.genSaltSync(parseInt(process.env.SALT_LENGTH)));
-    let updateResult = await User.updateMany({}, { password: commonPW });
-    console.log(updateResult);
+let testLogin = async (req, res) => {
+    // let commonPW = await bcrypt.hash('123456', bcrypt.genSaltSync(parseInt(process.env.SALT_LENGTH)));
+    // let updateResult = await User.updateMany({}, { password: commonPW });
+    let userResult = await User.findOne({ email: req.body.email });
+    let isPwCorrect = bcrypt.compareSync('123456', userResult.password);
+    console.log(isPwCorrect);
+    res.send(userResult);
 };
 
 module.exports = {
-    updatePW: updatePW,
+    testLogin: testLogin,
     getMovieById: getMovieById
 }

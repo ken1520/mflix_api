@@ -3,6 +3,6 @@ const userProcessor = require('../processors/user/userProcessor');
 
 let router = new Router({ caseSensitive: true });
 
-router.get('/changepw', userProcessor.updatePW);
+router.post('/login', userProcessor.testLogin);
 
 module.exports = router;
