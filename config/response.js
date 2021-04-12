@@ -7,6 +7,10 @@ module.exports = {
         systemMessage: 'empty response data',
         displayMessage: 'No result'
     },
+    1007: {
+        systemMessage: 'invalid email',
+        displayMessage: 'Invalid input - email'
+    },
     1008: {
         systemMessage: 'invalid mongoDB ID',
         displayMessage: 'Invalid input - mongoDB ID'
