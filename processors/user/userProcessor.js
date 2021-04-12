@@ -1,3 +1,7 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
+const bcrypt = require('bcrypt');
 const validator = require('validator');
 const User = require('../../models/user');
 const apiResponse = require('../../utils/apiResponse');
@@ -15,6 +19,12 @@ let getMovieById = async (req, res) => {
     }
 };
 
+let updatePW = async (req, res) => {
+    let commonPW = await bcrypt.hash('123456', bcrypt.genSaltSync(process.env.SALT_LENGTH));
+    await User.updateMany({}, { password: commonPW })
+};
+
 module.exports = {
+    updatePW: updatePW,
     getMovieById: getMovieById
 }
