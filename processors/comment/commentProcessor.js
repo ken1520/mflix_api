@@ -11,7 +11,7 @@ let validate = async (req, res) => {
 let getCommentsByMovieId = async (req, res) => {
     try {
         let resultComments = await Comment.find({ movie_id: req.params.movieId });
-        apiResponse(req, res, 1001, resultComments);
+        apiResponse(req, res, resultComments.length > 0 ? 1001 : 1002, resultComments);
     } catch (error) {
         apiResponse(req, res, 1009, error);
     }
@@ -20,7 +20,7 @@ let getCommentsByMovieId = async (req, res) => {
 let getCommentById = async (req, res) => {
     try {
         let resultComment = await Comment.find({ _id: req.params.commentId });
-        apiResponse(req, res, 1001, resultComment);
+        apiResponse(req, res, resultComment.length > 0 ? 1001 : 1002, resultComment);
     } catch (error) {
         apiResponse(req, res, 1009, error);
     }
