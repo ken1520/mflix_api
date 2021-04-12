@@ -1,3 +1,5 @@
+#Rename this file as .env and you can run this application
+
 APP_NAME=base
 KEY=12345678
 NODE_ENV=dev
