@@ -7,6 +7,10 @@ module.exports = {
         systemMessage: 'empty response data',
         displayMessage: 'No result'
     },
+    1002: {
+        systemMessage: 'no this email',
+        displayMessage: 'User not found'
+    },
     1007: {
         systemMessage: 'invalid email',
         displayMessage: 'Invalid input - email'
