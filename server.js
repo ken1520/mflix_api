@@ -5,7 +5,6 @@ const { v4: uuidv4 } = require('uuid');
 const morganBody = require('morgan-body');
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongodb = require('./utils/mongodb');
 
 const baseController = require('./controllers/$baseController');
 
@@ -21,6 +20,7 @@ app.use((req, res, next) => {
 });
 morganBody(app, loggerConfig);
 
+const mongodb = require('./utils/mongodb');
 mongodb.connect;
 
 baseController(app);
