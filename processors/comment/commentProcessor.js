@@ -5,16 +5,20 @@ const apiResponse = require('../../utils/apiResponse');
 let validate = (req, res, method) => {
     switch (method) {
         case 'getCommentsByMovieId':
+            if (!validator.isMongoId(req.params.movieId)) {
+                return apiResponse(req, res, 1008, []);
+            }
+            return true;
         case 'getCommentById':
             if (!validator.isMongoId(req.params.commentId)) {
                 return apiResponse(req, res, 1008, []);
             }
-            break;
+            return true;
         case 'getCommentsByUserEmail':
             if (!validator.isEmail(req.params.email)) {
                 return apiResponse(req, res, 1007, []);
             }
-            break;
+            return true;
     }
 };
 
