@@ -1,6 +1,3 @@
-const dotenv = require('dotenv');
-dotenv.config();
-
 const bcrypt = require('bcrypt');
 const validator = require('validator');
 const User = require('../../models/user');

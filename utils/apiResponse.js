@@ -3,7 +3,7 @@ dotenv.config();
 
 const response = require('../config/response');
 
-module.exports = (req, res, resCode, resData) => {
+module.exports = (req, res, resData, resCode = 1001) => {
     res.send({
         success: resCode === 1009 ? false : true,
         returnCode: resCode,

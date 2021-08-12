@@ -4,11 +4,13 @@ module.exports = (req, res, validate, process) => {
     let startTime = Date.now('micro');
     console.log('[API] [Processor Start] ---------------- Start ---------------- ');
     return validate(req, res)
-        .then(data => {
-            return process(req, res);
+        .then(async data => {
+            return process(req, res, data)
         })
-        .then(() => {
+        .then(async response => {
             let endTime = Date.now('micro');
+            console.log(response);
+            // res.send(await apiResponse())
             console.log('[API] [Processor Start] ---------------- End ' + (endTime - startTime) + ' ms ---------------- ');
         })
         .catch(async (error) => {
